@@ -34,6 +34,25 @@
         ul li.checked::before{
             background-image: url('./images/checked.png');
         }
+
+        ul li span{
+            position: absolute;
+            right: 0;
+            top: 0;
+            text-align: center;
+            color: red;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        ul li span:hover{
+            background: gray;
+            border-radius: 50%;
+            
+        }
     </style>
 </head>
 
@@ -50,7 +69,7 @@
             <!-- Input Field -->
             <div class="flex bg-gray-100 rounded-full h-11 my-2">
                 <input id="inputField" type="text" placeholder="Add your task" spellcheck="false" class="flex grow outline-0 h-10 border-none bg-transparent mx-4">
-                <button onclick="addTask()" id="inputBtn" class="bg-orange-500 text-white rounded-full w-20 border-none outline-none">Add</button>
+                <button onclick="addTask()" id="inputBtn" class="bg-[#ff5945] text-white rounded-full w-20 border-none outline-none">Add</button>
             </div>
             
             <!-- To-Do List -->
