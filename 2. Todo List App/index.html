@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App</title>
+    <!-- DaisyUI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Style -->
+    <style>
+        ul li {
+    position: relative; /* Ensure the li element is the reference for absolute positioning */
+    padding-left: 40px; /* Adjust this value to make room for the image */
+}
+        ul li::before{
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 28px;
+            height: 28px;
+            background-image: url('./images/unchecked.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+        }
+
+        ul li.checked{
+            color: gray;
+            text-decoration: line-through;
+        }
+
+        ul li.checked::before{
+            background-image: url('./images/checked.png');
+        }
+    </style>
+</head>
+
+<body class="container flex items-center justify-center">
+    
+<div class="card bg-base-100 w-96 shadow-xl m-16">
+        <div class="card-body">
+            <!-- Title -->
+            <div class="flex gap-1">
+                <h2 class="card-title text-blue-950 font-bold">To-Do List</h2>
+                <figure class="w-8"><img src="./images/icon.png" alt=""></figure>
+            </div>
+
+            <!-- Input Field -->
+            <div class="flex bg-gray-100 rounded-full h-11 my-2">
+                <input id="inputField" type="text" placeholder="Add your task" spellcheck="false" class="flex grow outline-0 h-10 border-none bg-transparent mx-4">
+                <button onclick="addTask()" id="inputBtn" class="bg-orange-500 text-white rounded-full w-20 border-none outline-none">Add</button>
+            </div>
+            
+            <!-- To-Do List -->
+            <div>
+                <ul id="taskList" class="relative space-y-2 cursor-pointer text-lg">
+                    <!-- <li class="checked">Task-1</li>
+                    <li>Task-2</li>
+                    <li>Task-3</li> -->
+                </ul>
+            </div>
+        
+        </div>
+</div>
+<script src="todo.js"></script>
+</body>
+</html>
