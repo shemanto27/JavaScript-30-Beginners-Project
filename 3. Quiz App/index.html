@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+
+    <!-- DaisyUI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="container flex justify-center my-20">
+
+    <div class="card bg-base-100 shadow-xl w-11/12">
+        <div class="card-body">
+        <h1 class="text-blue-950 text-2xl font-bold">Simple Quiz App by Shemanto</h1>
+        <hr class="border-blue-950 my-2">
+
+        <p id="question" class="text-xl font-bold">1.What is the Question?</p>
+        <div id="answerBtns" class="space-y-3">
+            <button class="btn border-2 border-gray-400 w-full h-10 px-2">Option-1</button>
+            <button class="btn border-2 border-gray-400 w-full h-10 px-2">Option-2</button>
+            <button class="btn border-2 border-gray-400 w-full h-10 px-2">Option-3</button>
+            <button class="btn border-2 border-gray-400 w-full h-10 px-2">Option-4</button>
+        </div>
+
+        <button class="nextBtn btn btn-primary w-20 hidden">Next</button>
+
+
+        </div>
+    </div>
+
+
+<script src="quiz.js"></script>
+</body>
+</html>
