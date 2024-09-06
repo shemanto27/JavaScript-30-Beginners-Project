@@ -92,11 +92,43 @@ function selectAnswer(e){
     const yourAnswer = selectBtn.dataset.answer === 'true';
     if(yourAnswer){
         selectBtn.classList.add('btn-success'); 
+        score++;
     }
     else{
         selectBtn.classList.add('btn-error');
     }
+
+    Array.from(answerBtnElement.children).forEach(button =>{
+        if(button.dataset.answer === 'true'){
+            button.classList.add('btn-success');
+        }
+        button.disabled = true;
+    });
+    nextBtnElement.style.display = 'block';
 }
+
+function showScore(){
+    res
+}
+
+function handleNextButton(){
+    currentQuestionIndex++;
+    if(currentQuestionIndex< questions.length){
+        showQuestion();
+    }
+    else{
+        showScore();
+    }
+}
+
+nextBtnElement.addEventListener('click', ()=>{
+    if(currentQuestionIndex< questions.length){
+        handleNextButton();
+    }
+    else{
+        startQuiz();
+    }
+});
 
 
 
