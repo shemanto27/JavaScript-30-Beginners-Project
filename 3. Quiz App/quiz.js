@@ -2,10 +2,10 @@ const questions = [
     {
         question : "Which programming language I am learning right now?",
         answers : [
-            {text: 'Python', correct: false},
-            {text: 'Rust', correct: false},
-            {text: 'C++', correct: false},
-            {text: 'JavaScript', correct: true},
+            {option: 'Python', correct: false},
+            {option: 'Rust', correct: false},
+            {option: 'C++', correct: false},
+            {option: 'JavaScript', correct: true},
 
         ]
     },
@@ -13,10 +13,10 @@ const questions = [
     {
         question : "Which university Shemanto studies?",
         answers : [
-            {text: 'BUET', correct: false},
-            {text: 'KUET', correct: true},
-            {text: 'RUET', correct: false},
-            {text: 'CUET', correct: false},
+            {option: 'BUET', correct: false},
+            {option: 'KUET', correct: true},
+            {option: 'RUET', correct: false},
+            {option: 'CUET', correct: false},
 
         ]
     },
@@ -24,10 +24,10 @@ const questions = [
     {
         question : "Where is my hometown?",
         answers : [
-            {text: 'Dhaka', correct: false},
-            {text: 'Khulna', correct: false},
-            {text: 'Mymensingh', correct: true},
-            {text: 'Rajshahi', correct: false},
+            {option: 'Dhaka', correct: false},
+            {option: 'Khulna', correct: false},
+            {option: 'Mymensingh', correct: true},
+            {option: 'Rajshahi', correct: false},
 
         ]
     },
@@ -35,10 +35,10 @@ const questions = [
     {
         question : "Which Department I study in?",
         answers : [
-            {text: 'ESE', correct: true},
-            {text: 'ME', correct: false},
-            {text: 'CSE', correct: false},
-            {text: 'EEE', correct: false},
+            {option: 'ESE', correct: true},
+            {option: 'ME', correct: false},
+            {option: 'CSE', correct: false},
+            {option: 'EEE', correct: false},
 
         ]
     },
@@ -46,10 +46,10 @@ const questions = [
     {
         question : "Which hall I live in?",
         answers : [
-            {text: 'LSH', correct: false},
-            {text: 'AEH', correct: false},
-            {text: 'BSMRH', correct: true},
-            {text: 'KJAH', correct: false},
+            {option: 'LSH', correct: false},
+            {option: 'AEH', correct: false},
+            {option: 'BSMRH', correct: true},
+            {option: 'KJAH', correct: false},
 
         ]
     },
@@ -68,4 +68,19 @@ function startQuiz(){
     nextBtnElement.innerHTML = 'Next';
     showQuestion();
 }
+
+function showQuestion(){
+    let currentQuestion = questions[currentQuestionIndex];
+    let questionNo = currentQuestionIndex + 1;
+    questionElement.innerHTML = questionNo + '. ' + currentQuestion.question;
+
+    currentQuestion.answers.forEach(answer =>{
+        const button = document.createElement('button');
+        button.innerHTML = answer.option;
+        button.classList.add('btn','border-2','border-gray-400','w-full','h-10','px-2');
+        answerBtnElement.appendChild(button);
+    });
+}
+
+startQuiz();
 
