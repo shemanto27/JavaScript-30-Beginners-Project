@@ -79,8 +79,26 @@ function showQuestion(){
         button.innerHTML = answer.option;
         button.classList.add('btn','border-2','border-gray-400','w-full','h-10','px-2');
         answerBtnElement.appendChild(button);
+
+        if(answer.correct){
+            button.dataset.answer = answer.correct;
+        }
+        button.addEventListener('click',selectAnswer);
     });
 }
+
+function selectAnswer(e){
+    const selectBtn = e.target;  
+    const yourAnswer = selectBtn.dataset.answer === 'true';
+    if(yourAnswer){
+        selectBtn.classList.add('btn-success'); 
+    }
+    else{
+        selectBtn.classList.add('btn-error');
+    }
+}
+
+
 
 startQuiz();
 
