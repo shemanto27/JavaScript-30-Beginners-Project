@@ -11,10 +11,13 @@
     <div class="container mx-auto my-10 bg-">
         <h1 class="text-3xl font-bold text-white">Generate a <br> <span class="underline text-[#009f55]">Random Password</span></h1>
         
-        <div class="flex my-5 gap-3">
-            <input type="text" id="Password" placeholder="Password">
-            <img src="images/copy.png" alt="copy" class="w-5">
+        <div class="flex my-5 gap-3 bg-white w-1/2 h-16 p-3 rounded-xl">
+            <input type="text" id="Password" placeholder="Password" class="grow border-none outline-none">
+            <figure class="h-full w-8"><img onclick="copyPassword()" src="images/copy.png" id="copypass" alt="copy" class="w-full"></figure>
         </div>
+        <button onclick="createPassword()" id="generatepass" class="flex text-white text-xl bg-[#009f55] rounded-xl h-14 w-80 items-center justify-center"><img src="/images/generate.png" alt="generate Password" class="w-8">Generate Password</button>
+
+
     
     </div>
     
