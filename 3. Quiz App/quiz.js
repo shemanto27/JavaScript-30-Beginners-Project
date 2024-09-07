@@ -69,7 +69,15 @@ function startQuiz(){
     showQuestion();
 }
 
+function resetState(){
+    nextBtnElement.style.display = 'none';
+    while(answerBtnElement.firstChild){
+        answerBtnElement.removeChild(answerBtnElement.firstChild);
+    }
+}
+
 function showQuestion(){
+    resetState();
     let currentQuestion = questions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
     questionElement.innerHTML = questionNo + '. ' + currentQuestion.question;
@@ -81,7 +89,7 @@ function showQuestion(){
         answerBtnElement.appendChild(button);
 
         if(answer.correct){
-            button.dataset.answer = answer.correct;
+            button.dataset.correct = answer.correct;
         }
         button.addEventListener('click',selectAnswer);
     });
@@ -89,7 +97,7 @@ function showQuestion(){
 
 function selectAnswer(e){
     const selectBtn = e.target;  
-    const yourAnswer = selectBtn.dataset.answer === 'true';
+    const yourAnswer = selectBtn.dataset.correct === 'true';
     if(yourAnswer){
         selectBtn.classList.add('btn-success'); 
         score++;
@@ -98,17 +106,20 @@ function selectAnswer(e){
         selectBtn.classList.add('btn-error');
     }
 
-    Array.from(answerBtnElement.children).forEach(button =>{
-        if(button.dataset.answer === 'true'){
-            button.classList.add('btn-success');
-        }
+    Array.from(answerBtnElement.querySelectorAll('button')).forEach(button => {
+        // if (button.dataset.correct === 'true') {
+        //     button.classList.add('btn-success');
+        // }
         button.disabled = true;
     });
     nextBtnElement.style.display = 'block';
 }
 
 function showScore(){
-    res
+    resetState();
+    questionElement.innerHTML = `Your Score ${score} out of ${questions.length}!`;
+    nextBtnElement.innerHTML = "Play Again";
+    nextBtnElement.style.display = 'block';
 }
 
 function handleNextButton(){
