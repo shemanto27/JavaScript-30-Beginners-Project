@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-sky-200 flex flex-col justify-center items-center">
+
+    <div class="bg-white rounded-xl mt-20 flex flex-col w-10/12 justify-center items-center font-serif">
+        <h1 class="text-3xl mt-5 mb-2">Quote of the Day</h1>
+        <hr class="border-sky-200 border-2 w-20 mb-6">
+        
+    <div class="text-xl my-5 relative">
+        <blockquote class="px-5" id="quoteId"><!--Quote Will Display Here --></blockquote>
+        <p id="authorId" class="absolute right-0 pr-5"><!--Name --></p>    
+    </div>
+        
+        <div class="my-5 flex gap-5 font-mono">
+            <button onclick="getQuote(api_url)" id="quoteBtn" class="bg-blue-500 rounded-full p-2 text-white text-sm">New Quote</button>
+            <button onclick="tweet()" id="xId" class="bg-black text-white flex gap-2 rounded-full p-2 text-sm "><img class="size-5" src="/X_logo_2023_(white).png" alt="">Tweet</button>
+        </div>
+    </div>
+
+
+
+<script src="quote.js"></script>
+</body>
+</html>
